@@ -24,12 +24,19 @@ require("lazy").setup({
 	build = ":TSUpdate",
 },
 {
-	"bluz71/vim-moonfly-colors",
-	name = "moonfly",
-	lazy = false,
-	priority = 1000
+	"catppuccin/nvim",
+	name = "catppuccin",
+	priority = 1000,
+},
+{
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.5",
+	dependencies = { "nvim-lua/plenary.nvim" },
 },
 })
+
+-- set colorscheme
+vim.cmd.colorscheme "catppuccin-mocha"
 
 -- configure treesitter
 require'nvim-treesitter.configs'.setup {
@@ -51,3 +58,13 @@ vim.opt.termguicolors=true
 vim.opt.relativenumber=true
 vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
 vim.opt.numberwidth = 3
+
+-- set <leader> key to SPACE
+vim.g.mapleader = " "
+
+-- configure telescope key bindings
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
