@@ -45,9 +45,6 @@ require("lazy").setup({
 	"github/copilot.vim",
 },
 {
-	"neovim/nvim-lspconfig",
-},
-{
 	"hrsh7th/cmp-nvim-lsp",
 },
 {
@@ -142,10 +139,18 @@ cmp.setup.cmdline(':', {
 	})
 })
 
--- Set up lspconfig.
+-- configure rustaceanvim
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('lspconfig')['rust-analyzer'].setup {
-	capabilities = capabilities
+vim.g.rustaceanvim = {
+	tools = {},
+	server = {
+		settings = {
+			["rust-analyzer"] = {
+				capabilities = capabilities,
+			},
+		},
+	},
+	dap = {},
 }
 
 -- disable line wrap
