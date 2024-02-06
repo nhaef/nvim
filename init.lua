@@ -15,6 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 -- configure lazy
 require("lazy").setup({
 {
+	"neovim/nvim-lspconfig",
+},
+{
 	"mrcjkb/rustaceanvim",
 	version = "^4",
 	ft = { "rust" },
@@ -66,6 +69,9 @@ require("lazy").setup({
 	"hrsh7th/vim-vsnip",
 },
 })
+
+-- configure ts lsp
+ require("lspconfig").tsserver.setup {}
 
 -- set colorscheme
 vim.cmd.colorscheme "catppuccin-mocha"
@@ -169,7 +175,8 @@ vim.g.mapleader = " "
 
 -- configure telescope key bindings
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find file" })
+vim.keymap.set("n", "<leader>fa", function() builtin.find_files({ hidden = true }) end, { desc = "find all" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
