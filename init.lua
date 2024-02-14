@@ -71,7 +71,8 @@ require("lazy").setup({
 })
 
 -- configure ts lsp
- require("lspconfig").tsserver.setup {}
+require("lspconfig").tsserver.setup {}
+require("lspconfig").clangd.setup {}
 
 -- set colorscheme
 vim.cmd.colorscheme "catppuccin-mocha"
