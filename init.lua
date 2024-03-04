@@ -68,6 +68,9 @@ require("lazy").setup({
 {
 	"hrsh7th/vim-vsnip",
 },
+{
+	"tamton-aquib/keys.nvim"
+},
 })
 
 -- configure ts lsp
