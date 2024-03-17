@@ -69,9 +69,15 @@ require("lazy").setup({
 	"hrsh7th/vim-vsnip",
 },
 {
-	"tamton-aquib/keys.nvim"
+	"tamton-aquib/keys.nvim",
+},
+{
+	"https://codeberg.org/esensar/nvim-dev-container",
 },
 })
+
+-- configure nvim-dev-container
+require("devcontainer").setup {}
 
 -- configure ts lsp
 require("lspconfig").tsserver.setup {}
@@ -82,7 +88,7 @@ vim.cmd.colorscheme "catppuccin-mocha"
 
 -- configure treesitter
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "kdl" },
+	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "kdl", "jsonc" },
 	sync_install = false,
 	auto_install = false,
 	highlight = {
