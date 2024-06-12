@@ -29,6 +29,10 @@ return {
 			-- js / ts
 			require("lspconfig").tsserver.setup {}
 			require("lspconfig").clangd.setup {}
+			-- haskell
+			require("lspconfig").hls.setup {
+				filetypes = { 'haskell', 'lhaskell', 'cabal', 'hs' },
+			}
 		end,
 	},
 }
