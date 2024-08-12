@@ -33,5 +33,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, {
 			desc = "rust docs"
 		})
+
+		-- rust explain error
+		vim.keymap.set("n", "<space>ree", function()
+			vim.cmd.RustLsp("explainError")
+		end, {
+			desc = "rust explain error"
+		})
+
+		-- rust explain diagnostics
+		vim.keymap.set("n", "<space>red", function()
+			vim.cmd.RustLsp("renderDiagnostic")
+		end, {
+			desc = "rust explain diagnostics"
+		})
 	end
 })

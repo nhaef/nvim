@@ -98,13 +98,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		})
 
 		-- lsp format (on save)
-		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = group_lsp,
-			callback = function()
-				if client.supports_method('textDocument/formatting') then
-					vim.lsp.buf.format()
-				end
-			end
-		})
+		-- vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 	group = group_lsp,
+		-- 	callback = function()
+		-- 		if client.supports_method('textDocument/formatting') then
+		-- 			vim.lsp.buf.format()
+		-- 		end
+		-- 	end
+		-- })
 	end,
 })
