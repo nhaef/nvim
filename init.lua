@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 
 -- enable relative numbers
 vim.opt.relativenumber = true
-vim.opt.statuscolumn = " %{%v:virtnum<1?(v:relnum?'%='.v:relnum:'%#Bold#'.v:lnum.'%='):''%} "
+vim.opt.statuscolumn = "%s %{%v:virtnum<1?(v:relnum?'%='.v:relnum:'%#Bold#'.v:lnum.'%='):''%} "
 vim.opt.numberwidth = 5
 
 -- set <leader> key to SPACE

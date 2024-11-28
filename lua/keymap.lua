@@ -31,6 +31,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = group_lsp,
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		-- lazy git 
+		vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", {
+			silent = true,
+			desc = "lazy git"
+		})
+
 		-- hover
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, {
 			desc = "hover"
