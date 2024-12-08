@@ -4,7 +4,7 @@ return {
 		build = ":TSUpdate",
 		init = function()
 			require("nvim-treesitter.configs").setup {
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "kdl", "jsonc" },
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "kdl", "jsonc", "typst" },
 				sync_install = false,
 				auto_install = false,
 				highlight = {
