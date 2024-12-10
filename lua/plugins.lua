@@ -5,4 +5,12 @@ return {
 			require("devcontainer").setup {}
 		end
 	},
+	{
+		"mistricky/codesnap.nvim",
+		build = "make",
+		opts = {
+			has_line_number = true,
+			bg_padding = 0,
+		},
+	},
 }
