@@ -12,6 +12,13 @@ vim.opt.numberwidth = 5
 -- set <leader> key to SPACE
 vim.g.mapleader = " "
 
+-- set tab width to 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+
+
 -- setup lazy
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
