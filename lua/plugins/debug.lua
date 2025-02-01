@@ -1,5 +1,5 @@
 return {
-	"mfussenegger/nvim-dap",
-	init = function()
-	end
+    "mfussenegger/nvim-dap",
+    init = function()
+    end
 }
