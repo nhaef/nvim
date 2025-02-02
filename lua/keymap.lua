@@ -25,8 +25,15 @@ vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {
     desc = "find help"
 })
 
--- toggle statuscolumn
-vim.keymap.set("n", "<leader>sc", require("config.statuscolumn").toggle)
+-- open dashboard 
+vim.keymap.set("n", "<leader>dd", function() vim.cmd("Dashboard") end, {
+    desc = "open dashboard"
+})
+
+-- toggle relative line numbers
+vim.keymap.set("n", "<leader>ll", require("config.statuscolumn").toggle, {
+    desc = "toggle relative line numbers"
+})
 
 -- lsp keymap
 local group_lsp = vim.api.nvim_create_augroup('UserLspConfig', {})
