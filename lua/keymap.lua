@@ -35,6 +35,17 @@ vim.keymap.set("n", "<leader>ll", require("config.statuscolumn").toggle, {
     desc = "toggle relative line numbers"
 })
 
+-- next diagnostic
+vim.keymap.set("n", "[j", vim.diagnostic.goto_next, {
+    desc = "go to next diagnostic"
+})
+
+-- previous diagnostic
+vim.keymap.set("n", "[k", vim.diagnostic.goto_prev, {
+    desc = "go to previous diagnostic"
+})
+
+
 -- lsp keymap
 local group_lsp = vim.api.nvim_create_augroup('UserLspConfig', {})
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -114,13 +125,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- lsp diagnostic toggle
         vim.keymap.set("n", "<space>ld", function()
-            local config = vim.diagnostic.config()
-            vim.diagnostic.config({
-                virtual_lines = not config.virtual_lines,
-                virtual_text = not config.virtual_text,
-                underline = not config.underline,
-                signs = not config.signs,
-            })
+            vim.diagnostic.enable(not vim.diagnostic.is_enabled())
             require("lualine").refresh()
         end, {
             desc = "lsp diagnostic toggle"

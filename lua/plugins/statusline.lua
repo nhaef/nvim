@@ -28,9 +28,7 @@ return {
                     "diff",
                     {
                         "diagnostics",
-                        cond = function()
-                            return vim.diagnostic.config().signs
-                        end
+                        cond = vim.diagnostic.is_enabled
                     },
                 },
             },
