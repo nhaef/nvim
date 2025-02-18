@@ -22,6 +22,18 @@ return {
                     right = "",
                 }
             },
+            sections = {
+                lualine_b = {
+                    "branch",
+                    "diff",
+                    {
+                        "diagnostics",
+                        cond = function()
+                            return vim.diagnostic.config().signs
+                        end
+                    },
+                },
+            },
         }
     end
 }

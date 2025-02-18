@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {
     desc = "find help"
 })
 
--- open dashboard 
+-- open dashboard
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("Dashboard") end, {
     desc = "open dashboard"
 })
@@ -110,6 +110,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, {
             desc = "lsp inlay hint toggle"
+        })
+
+        -- lsp diagnostic toggle
+        vim.keymap.set("n", "<space>ld", function()
+            local config = vim.diagnostic.config()
+            vim.diagnostic.config({
+                virtual_lines = not config.virtual_lines,
+                virtual_text = not config.virtual_text,
+                underline = not config.underline,
+                signs = not config.signs,
+            })
+            require("lualine").refresh()
+        end, {
+            desc = "lsp diagnostic toggle"
         })
     end,
 })
