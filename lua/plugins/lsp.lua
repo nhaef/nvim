@@ -31,6 +31,8 @@ return {
             require("lspconfig").hls.setup {
                 filetypes = { 'haskell', 'lhaskell', 'cabal' },
             }
+            require("lspconfig").cds_lsp.setup {}
+
         end,
     },
 }
