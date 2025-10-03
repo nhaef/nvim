@@ -3,7 +3,7 @@ return {
         "neovim/nvim-lspconfig",
         name = "nvim-lspconfig",
         init = function()
-            require "lspconfig".lua_ls.setup {
+            vim.lsp.config.luals = {
                 settings = { Lua = {
                     format = {
                         defaultConfig = {
@@ -25,13 +25,13 @@ return {
                     },
                 },
                 } }
-            require("lspconfig").basedpyright.setup {}
-            require("lspconfig").ts_ls.setup {}
-            require("lspconfig").clangd.setup {}
-            require("lspconfig").hls.setup {
+            vim.lsp.config.basedpyright = {}
+            vim.lsp.config.ts_ls = {}
+            vim.lsp.config.clangd = {}
+            vim.lsp.config.hls = {
                 filetypes = { 'haskell', 'lhaskell', 'cabal' },
             }
-            require("lspconfig").cds_lsp.setup {}
+            vim.lsp.config.cds_lsp = {}
 
         end,
     },
