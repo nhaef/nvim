@@ -62,8 +62,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
             desc = "hover"
         })
 
-        -- signature help
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {
+        -- signature help (changed from <C-k> to avoid conflict with smart-splits)
+        vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, {
             desc = "signature help"
         })
 
