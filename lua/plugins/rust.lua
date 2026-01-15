@@ -14,7 +14,7 @@ return {
     {
         "mrcjkb/rustaceanvim",
         name = "rustaceanvim",
-        version = '^6',
+        version = '^7',
         lazy = false,
     }
 }

@@ -3,6 +3,10 @@ return {
         "neovim/nvim-lspconfig",
         name = "nvim-lspconfig",
         init = function()
+            -- Setup lsp-status
+            local lsp_status = require("lsp-status")
+            lsp_status.register_progress()
+            
             vim.lsp.config.luals = {
                 settings = { Lua = {
                     format = {
@@ -35,4 +39,5 @@ return {
 
         end,
     },
+    "nvim-lua/lsp-status.nvim"
 }

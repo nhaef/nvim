@@ -1,7 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     name = "lualine",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/lsp-status.nvim" },
     init = function()
         local custom_16color = require("lualine.themes.16color")
         local colors = {
@@ -30,6 +30,12 @@ return {
                         "diagnostics",
                         cond = vim.diagnostic.is_enabled
                     },
+                },
+                lualine_c = {
+                    "filename",
+                    function()
+                        return require("lsp-status").status()
+                    end,
                 },
             },
         }
