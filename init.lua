@@ -1,5 +1,5 @@
--- disable line wrap
-vim.opt.wrap = false
+-- enable line wrap
+vim.opt.wrap = true
 
 -- enable 24 bit colors
 vim.opt.termguicolors = true
