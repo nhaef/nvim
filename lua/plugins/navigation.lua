@@ -40,5 +40,24 @@ return {
             vim.keymap.set('n', '<leader><leader>k', smart_splits.swap_buf_up)
             vim.keymap.set('n', '<leader><leader>l', smart_splits.swap_buf_right)
         end,
+    },
+    {
+        "mikavilpas/yazi.nvim",
+        version = "*",
+        event = "VeryLazy",
+        dependencies = { "nvim-lua/plenary.nvim", lazy = true  },
+        keys = {
+            {
+                "<leader>-",
+                mode = { "n", "v" },
+                "<cmd>Yazi<cr>",
+                desc = "Open yazi at the current file",
+            },
+            {
+                "<leader>cw",
+                "<cmd>Yazi cwd<cr>",
+                desc = "Open yazi in current working directory",
+            },
+        }
     }
 }
