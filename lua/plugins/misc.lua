@@ -7,6 +7,8 @@ return {
     },
     {
         "mistricky/codesnap.nvim",
+        tag = "v1.6.3",
+        event = "BufEnter",
         build = "make",
         opts = {
             has_line_number = true,
