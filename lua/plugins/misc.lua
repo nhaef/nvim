@@ -15,4 +15,16 @@ return {
             bg_padding = 0,
         },
     },
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            input = {},
+            picker = {},
+            actions = {
+                opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
+            },
+        },
+    },
 }

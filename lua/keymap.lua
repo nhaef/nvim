@@ -1,3 +1,11 @@
+-- copy to system clipboard
+vim.keymap.set({"n", "v"}, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Copy line to system clipboard" })
+
+-- paste from system clipboard
+vim.keymap.set({"n", "v"}, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({"n", "v"}, "<leader>P", '"+P', { desc = "Paste before from system clipboard" })
+
 -- find file
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
     desc = "find file"
@@ -131,7 +139,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
             desc = "lsp diagnostic toggle"
         })
 
-
         -- nvim-dap keymap --
         vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
         vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
@@ -157,5 +164,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
             local widgets = require('dap.ui.widgets')
             widgets.centered_float(widgets.scopes)
         end)
+
     end,
 })
+
+-- opencode
+vim.keymap.set({ "n", "x" }, "<leader>a", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
+vim.keymap.set({ "n", "x" }, "<leader>A", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
+
+vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { desc = "Add range to opencode", expr = true })
+vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { desc = "Add line to opencode", expr = true })

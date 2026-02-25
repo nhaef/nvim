@@ -1,19 +1,18 @@
 return {
     {
-        "github/copilot.vim",
-        enabled = function() return os.getenv("NVIM_ENABLE_GH_COPILOT") end,
-    },
-    {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        enabled = function() return os.getenv("NVIM_ENABLE_GH_COPILOT") end,
-        dependencies = {
-            { "github/copilot.vim" },
-            { "nvim-lua/plenary.nvim", branch = "master" },
-        },
-        build = "make tiktoken",
-        opts = {
-            -- See Configuration section for options
-        },
+        "nickjvandyke/opencode.nvim",
+        version = "*",
+        config = function()
+            ---@type opencode.Opts
+            vim.g.opencode_opts = {
+                provider = {
+                    enabled = "wezterm",
+                }
+            }
+
+            -- Required for `opts.events.reload`.
+            vim.o.autoread = true
+        end,
     },
     {
         "hrsh7th/cmp-nvim-lsp",

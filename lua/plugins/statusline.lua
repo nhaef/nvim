@@ -38,6 +38,9 @@ return {
                         "diagnostics",
                         cond = vim.diagnostic.is_enabled
                     },
+                    {
+                        require("opencode").statusline,
+                    },
                 },
             },
         }

@@ -31,8 +31,21 @@ return {
             vim.lsp.config.hls = {
                 filetypes = { 'haskell', 'lhaskell', 'cabal' },
             }
-            vim.lsp.config.cds_lsp = {}
+            vim.lsp.config.cds_lsp = {
+                cmd = { "cds-lsp", "--stdio" },
+                filetypes = { "cds" },
+                root_markers = { "package.json", ".cdsrc.json", ".git" },
+            }
 
+            -- Enable LSP servers to auto-start
+            vim.lsp.enable({
+                "luals",
+                "basedpyright",
+                "ts_ls",
+                "clangd",
+                "hls",
+                "cds_lsp",
+            })
         end,
     },
 }
