@@ -1,9 +1,6 @@
 -- enable line wrap
 vim.opt.wrap = true
 
--- enable 24 bit colors
-vim.opt.termguicolors = true
-
 -- set tab width to 4
 vim.opt.tabstop = 4
 vim.opt.expandtab = true

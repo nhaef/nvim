@@ -1,31 +1,32 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
         build = ":TSUpdate",
-        init = function()
+        config = function()
+            -- Register custom CDS parser
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "TSUpdate",
+                callback = function()
+                    require("nvim-treesitter.parsers").cds = {
+                        install_info = {
+                            url = "https://github.com/cap-js-community/tree-sitter-cds",
+                            branch = "main",
+                        },
+                    }
+                end,
+            })
 
-            -- custom parser for cds
-            local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-            parser_config.cds = {
-                install_info = {
-                    url = 'https://github.com/cap-js-community/tree-sitter-cds.git',
-                    files = { 'src/parser.c', 'src/scanner.c' },
-                    branch = 'main',
-                    generate_requires_npm = false,
-                    requires_generate_from_grammar = false
-                },
-                filetype = 'cds',
-                used_by = { 'cdl', 'hdbcds' }
-            }
+            -- Install non-bundled parsers (bundled in 0.12: c, lua, markdown, vim, vimdoc, query)
+            require("nvim-treesitter").install { "rust", "kdl", "typst", "cds" }
 
-            require("nvim-treesitter.configs").setup {
-                ensure_installed = { "c", "cds", "lua", "vim", "vimdoc", "query", "rust", "kdl", "jsonc", "typst" },
-                sync_install = false,
-                auto_install = false,
-                highlight = {
-                    enable = true,
-                },
-            }
-        end
+            -- Enable treesitter highlighting for filetypes without built-in ftplugin support
+            -- (Neovim 0.12 only auto-enables for: lua, markdown, help, query)
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = { "rust", "kdl", "typst", "cds", "c", "vim" },
+                callback = function() vim.treesitter.start() end,
+            })
+        end,
     },
 }

@@ -5,9 +5,6 @@ return {
         config = function()
             ---@type opencode.Opts
             vim.g.opencode_opts = {
-                provider = {
-                    enabled = "wezterm",
-                }
             }
 
             -- Required for `opts.events.reload`.

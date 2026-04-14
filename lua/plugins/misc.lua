@@ -7,12 +7,15 @@ return {
     },
     {
         "mistricky/codesnap.nvim",
-        tag = "v1.6.3",
+        version = "^2",
         event = "BufEnter",
-        build = "make",
         opts = {
-            has_line_number = true,
-            bg_padding = 0,
+            show_line_number = true,
+            snapshot_config = {
+                window = {
+                    margin = { x = 0, y = 0 },
+                },
+            },
         },
     },
     {

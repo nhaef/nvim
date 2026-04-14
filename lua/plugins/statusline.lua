@@ -2,11 +2,11 @@ return {
     "nvim-lualine/lualine.nvim",
     name = "lualine",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    init = function()
+    config = function()
         require("lualine").setup {
             options = {
                 icons_enabled = true,
-                theme = "catppuccin",
+                theme = "auto",
                 component_separators = {
                     left = "|",
                     right = "|",

@@ -2,8 +2,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         name = "nvim-lspconfig",
-        init = function()
-            vim.lsp.config.luals = {
+        config = function()
+            vim.lsp.config.lua_ls = {
                 settings = { Lua = {
                     format = {
                         defaultConfig = {
@@ -39,7 +39,7 @@ return {
 
             -- Enable LSP servers to auto-start
             vim.lsp.enable({
-                "luals",
+                "lua_ls",
                 "basedpyright",
                 "ts_ls",
                 "clangd",
