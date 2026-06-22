@@ -33,6 +33,11 @@ vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, {
     desc = "find help"
 })
 
+-- keymaps explorer
+vim.keymap.set("n", "<leader>fk", function() Snacks.picker.keymaps() end, {
+    desc = "find keymaps"
+})
+
 -- open dashboard
 vim.keymap.set("n", "<leader>dd", function() vim.cmd("Dashboard") end, {
     desc = "open dashboard"
