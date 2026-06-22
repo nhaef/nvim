@@ -1,20 +1,5 @@
 return {
     {
-        "nvim-telescope/telescope.nvim",
-        name = "telescope",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("telescope").setup {
-                defaults = {
-                    file_ignore_patterns = {
-                        "node%_modules/.*",
-                        "target/.*",
-                    }
-                }
-            }
-        end,
-    },
-    {
         'mrjones2014/smart-splits.nvim',
         lazy = false,
         config = function()

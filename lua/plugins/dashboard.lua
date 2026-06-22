@@ -36,13 +36,13 @@ return {
                             icon = "󰱼 ",
                             desc = "find file",
                             key = "f",
-                            action = "Telescope find_files",
+                            action = "lua Snacks.picker.files()",
                         },
                         {
                             icon = "󱎸 ",
                             desc = "find text",
                             key = "g",
-                            action = "Telescope live_grep",
+                            action = "lua Snacks.picker.grep()",
                         },
                         {
                             icon = " ",

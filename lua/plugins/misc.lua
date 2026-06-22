@@ -24,7 +24,13 @@ return {
         lazy = false,
         opts = {
             input = {},
-            picker = {},
+            picker = {
+                ui_select = true,
+                sources = {
+                    files = { exclude = { "node_modules", "target" } },
+                    grep  = { exclude = { "node_modules", "target" } },
+                },
+            },
             actions = {
                 opencode_send = function(...) return require("opencode").snacks_picker_send(...) end,
             },

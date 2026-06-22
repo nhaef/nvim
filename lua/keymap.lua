@@ -7,29 +7,29 @@ vim.keymap.set({"n", "v"}, "<leader>p", '"+p', { desc = "Paste from system clipb
 vim.keymap.set({"n", "v"}, "<leader>P", '"+P', { desc = "Paste before from system clipboard" })
 
 -- find file
-vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {
+vim.keymap.set("n", "<leader>ff", function() Snacks.picker.files() end, {
     desc = "find file"
 })
 
 -- find all
 vim.keymap.set("n", "<leader>fa", function()
-    require("telescope.builtin").find_files({ hidden = true })
+    Snacks.picker.files({ hidden = true })
 end, {
     desc = "find all"
 })
 
--- fing grep
-vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, {
+-- find grep
+vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, {
     desc = "find grep"
 })
 
 -- find buffer
-vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, {
+vim.keymap.set("n", "<leader>fb", function() Snacks.picker.buffers() end, {
     desc = "find buffer"
 })
 
 -- find help
-vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {
+vim.keymap.set("n", "<leader>fh", function() Snacks.picker.help() end, {
     desc = "find help"
 })
 
