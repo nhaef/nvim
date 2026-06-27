@@ -32,7 +32,10 @@ return {
                         "diagnostics",
                         cond = vim.diagnostic.is_enabled
                     },
+                },
+                lualine_z = {
                     {
+                        -- Show the currently connected server and its status
                         require("opencode").statusline,
                     },
                 },
