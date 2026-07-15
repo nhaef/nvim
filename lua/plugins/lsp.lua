@@ -1,43 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
-        name = "nvim-lspconfig",
         config = function()
-            vim.lsp.config.lua_ls = {
-                settings = { Lua = {
-                    format = {
-                        defaultConfig = {
-                            indent_style = "tab",
-                            quote_style = "double",
-                            call_arg_parentheses = "remove",
-                            trailing_table_separator = "smart",
-                            line_space_after_if_statement = "fixed(1)",
-                            line_space_after_local_or_assign_statement = "min(1)",
-                            line_space_after_expression_statement = "min(1)",
-                            break_all_list_when_line_exceed = true,
-                            end_statement_with_semicolon = "replace_with_newline"
-                        },
-                    },
-                    diagnostics = {
-                        globals = {
-                            "vim",
-                        },
-                    },
-                },
-                } }
-            vim.lsp.config.basedpyright = {}
-            vim.lsp.config.ts_ls = {}
-            vim.lsp.config.clangd = {}
-            vim.lsp.config.hls = {
-                filetypes = { 'haskell', 'lhaskell', 'cabal' },
-            }
-            vim.lsp.config.cds_lsp = {
-                cmd = { "cds-lsp", "--stdio" },
-                filetypes = { "cds" },
-                root_markers = { "package.json", ".cdsrc.json", ".git" },
-            }
-
-            -- Enable LSP servers to auto-start
             vim.lsp.enable({
                 "lua_ls",
                 "basedpyright",
@@ -45,6 +9,7 @@ return {
                 "clangd",
                 "hls",
                 "cds_lsp",
+                "tinymist",
             })
         end,
     },

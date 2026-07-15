@@ -22,9 +22,24 @@ return {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
+        keys = {
+            {
+                "<leader>-",
+                function() Snacks.explorer() end,
+                desc = "Open file explorer at current file",
+            },
+            {
+                "<leader>cw",
+                function() Snacks.explorer({ cwd = vim.fn.getcwd() }) end,
+                desc = "Open file explorer in current working directory",
+            },
+        },
         opts = {
             input = {
                 enabled = true, -- Enhances `ask()`
+            },
+            explorer = {
+                enabled = true,
             },
             picker = {
                 enabled = true, -- Enhances `select()`
