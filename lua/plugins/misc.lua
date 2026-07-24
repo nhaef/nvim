@@ -33,12 +33,20 @@ return {
                 function() Snacks.explorer({ cwd = vim.fn.getcwd() }) end,
                 desc = "Open file explorer in current working directory",
             },
+            {
+                "<leader>tt",
+                function() Snacks.terminal.toggle() end,
+                desc = "Toggle terminal",
+            },
         },
         opts = {
             input = {
                 enabled = true, -- Enhances `ask()`
             },
             explorer = {
+                enabled = true,
+            },
+            terminal = {
                 enabled = true,
             },
             picker = {
@@ -62,6 +70,12 @@ return {
                     input = {
                         keys = {
                             ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+                            ["<a-h>"] = false, -- unblock smart-splits resize_left
+                        },
+                    },
+                    list = {
+                        keys = {
+                            ["<a-h>"] = false, -- unblock smart-splits resize_left
                         },
                     },
                 },
