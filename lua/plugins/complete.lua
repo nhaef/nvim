@@ -56,9 +56,14 @@ return {
         "hrsh7th/cmp-cmdline",
     },
     {
+        "onsails/lspkind.nvim",
+    },
+    {
         "hrsh7th/nvim-cmp",
+        dependencies = { "onsails/lspkind.nvim" },
         init = function()
             local cmp = require("cmp")
+            local lspkind = require("lspkind")
             cmp.setup({
                 snippet = {
                     expand = function(args)
@@ -66,8 +71,8 @@ return {
                     end,
                 },
                 window = {
-                    completion = cmp.config.window.bordered(),
-                    documentation = cmp.config.window.bordered(),
+                    -- completion = cmp.config.window.bordered(),
+                    -- documentation = cmp.config.window.bordered(),
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -76,6 +81,17 @@ return {
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 }),
+                formatting = {
+                    fields = { 'abbr', 'icon', 'kind', 'menu' },
+                    format = lspkind.cmp_format({
+                        maxwidth = {
+                            menu = 50, -- leading text (labelDetails)
+                            abbr = 50, -- actual suggestion item
+                        },
+                        ellipsis_char = '...', -- when popup menu exceeds maxwidth, show ellipsis_char instead
+                        show_labelDetails = true, -- show labelDetails in menu
+                    }),
+                },
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'vsnip' }, -- For vsnip users.
