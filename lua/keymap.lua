@@ -49,12 +49,12 @@ vim.keymap.set("n", "<leader>ll", require("config.statuscolumn").toggle, {
 })
 
 -- next diagnostic
-vim.keymap.set("n", "[j", vim.diagnostic.goto_next, {
+vim.keymap.set("n", "[j", function() vim.diagnostic.jump({ count = 1, float = true }) end, {
     desc = "go to next diagnostic"
 })
 
 -- previous diagnostic
-vim.keymap.set("n", "[k", vim.diagnostic.goto_prev, {
+vim.keymap.set("n", "[k", function() vim.diagnostic.jump({ count = -1, float = true }) end, {
     desc = "go to previous diagnostic"
 })
 

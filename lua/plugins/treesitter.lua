@@ -18,8 +18,7 @@ return {
                 end,
             })
 
-            -- Install non-bundled parsers (bundled in 0.12: c, lua, markdown, vim, vimdoc, query)
-            require("nvim-treesitter").install { "rust", "kdl", "typst", "cds" }
+            require("nvim-treesitter").install { "rust", "kdl", "typst", "cds", "lua" }
 
             -- Enable treesitter highlighting for filetypes without built-in ftplugin support
             -- (Neovim 0.12 only auto-enables for: lua, markdown, help, query)
