@@ -1,11 +1,5 @@
 return {
     {
-        "https://codeberg.org/esensar/nvim-dev-container",
-        init = function()
-            require("devcontainer").setup {}
-        end
-    },
-    {
         "mistricky/codesnap.nvim",
         version = "^2",
         event = "BufEnter",
