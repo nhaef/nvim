@@ -49,6 +49,7 @@ return {
                 sources = {
                     files = { exclude = { "node_modules", "target" } },
                     grep  = { exclude = { "node_modules", "target" } },
+                    keymaps = { layout = { preset = "vertical" } },
                 },
                 actions = {
                     sidekick_send = function(...)
