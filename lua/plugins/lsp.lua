@@ -10,6 +10,7 @@ return {
                 "hls",
                 "cds_lsp",
                 "tinymist",
+                "copilot",
             })
         end,
     },

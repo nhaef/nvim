@@ -5,11 +5,11 @@ return {
         config = function()
             local smart_splits = require('smart-splits')
 
-            -- resizing splits
-            vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
-            vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
-            vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
-            vim.keymap.set('n', '<A-l>', smart_splits.resize_right)
+            -- resizing splits (also works from terminal mode, e.g. sidekick's CLI terminal)
+            vim.keymap.set({ 'n', 't' }, '<A-h>', smart_splits.resize_left)
+            vim.keymap.set({ 'n', 't' }, '<A-j>', smart_splits.resize_down)
+            vim.keymap.set({ 'n', 't' }, '<A-k>', smart_splits.resize_up)
+            vim.keymap.set({ 'n', 't' }, '<A-l>', smart_splits.resize_right)
 
             -- moving between splits
             vim.keymap.set('n', '<C-h>', smart_splits.move_cursor_left)

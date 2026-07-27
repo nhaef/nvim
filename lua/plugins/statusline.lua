@@ -33,11 +33,32 @@ return {
                         cond = vim.diagnostic.is_enabled
                     },
                 },
-                lualine_z = {
+                lualine_x = {
                     {
-                        -- Show the currently connected server and its status
-                        require("opencode").statusline,
+                        -- Sidekick CLI session status
+                        function()
+                            local status = require("sidekick.status").cli()
+                            local icon = require("sidekick.config").ui.icons.terminal_attached
+                            return icon .. (#status > 1 and (" " .. #status) or "")
+                        end,
+                        cond = function() return #require("sidekick.status").cli() > 0 end,
                     },
+                    {
+                        -- Sidekick Copilot NES status
+                        function() return require("sidekick.config").ui.icons.nes end,
+                        color = function()
+                            local status = require("sidekick.status").get()
+                            if status then
+                                return status.kind == "Error" and "DiagnosticError"
+                                    or status.busy and "DiagnosticWarn"
+                                    or nil
+                            end
+                        end,
+                        cond = function() return require("sidekick.status").get() ~= nil end,
+                    },
+                },
+                lualine_z = {
+                    "location",
                 },
             },
         }
