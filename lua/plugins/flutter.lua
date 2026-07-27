@@ -5,6 +5,6 @@ return {
             'nvim-lua/plenary.nvim',
         },
         config = true,
-        lazy = false,
+        ft = "dart",
     }
 }
