@@ -11,6 +11,8 @@ return {
                 "cds_lsp",
                 "tinymist",
                 "copilot",
+                "jsonls",
+                "buf_ls",
             })
         end,
     },
