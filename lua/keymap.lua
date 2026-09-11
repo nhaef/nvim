@@ -117,14 +117,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- lsp format
         vim.keymap.set("n", "<space>lf", function()
-            vim.lsp.buf.format {
-                async = true,
-                formatting_options = {
-                    tabSize = 4,
-                    trimTrailingWhitespace = true,
-                    insertFinalNewline = true,
-                }
-            }
+            require("conform").format({ async = true })
         end, {
             desc = "lsp format"
         })
