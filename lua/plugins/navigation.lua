@@ -16,7 +16,6 @@ return {
             vim.keymap.set({ 'n', 't' }, '<C-j>', smart_splits.move_cursor_down)
             vim.keymap.set({ 'n', 't' }, '<C-k>', smart_splits.move_cursor_up)
             vim.keymap.set({ 'n', 't' }, '<C-l>', smart_splits.move_cursor_right)
-            vim.keymap.set({ 'n', 't' }, '<C-\\>', smart_splits.move_cursor_previous)
 
             -- swapping buffers between windows
             vim.keymap.set('n', '<leader><leader>h', smart_splits.swap_buf_left)
