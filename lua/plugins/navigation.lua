@@ -1,9 +1,23 @@
 return {
     {
-        'mrjones2014/smart-splits.nvim',
+        'smart-splits-nvim/smart-splits.nvim',
         lazy = false,
+        dependencies = {
+            {
+                'smart-splits-nvim/backend-wezterm',
+                opts = {
+                    cli_path = 'wezterm',
+                },
+            },
+        },
         config = function()
             local smart_splits = require('smart-splits')
+
+            smart_splits.setup({
+                mux = {
+                    backend = 'smart-splits-backend-wezterm',
+                },
+            })
 
             -- resizing splits (also works from terminal mode, e.g. sidekick's CLI terminal)
             vim.keymap.set({ 'n', 't' }, '<A-h>', smart_splits.resize_left)
