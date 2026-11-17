@@ -13,6 +13,7 @@ return {
                 "copilot",
                 "jsonls",
                 "buf_ls",
+                "tofu_ls",
             })
         end,
     },
